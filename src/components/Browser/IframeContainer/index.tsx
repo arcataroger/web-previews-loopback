@@ -22,6 +22,7 @@ interface IframeContainerProps {
 export function IframeContainer({
   src,
   title = 'Preview',
+  allow,
   loading = false,
   sizing = 'responsive',
   onLoad,
@@ -80,7 +81,7 @@ export function IframeContainer({
         ref={mergedRef}
         src={src}
         title={title}
-        allow={"local-network-access"}
+        allow={allow}
         style={iframeStyle}
         onLoad={onLoad}
       />
