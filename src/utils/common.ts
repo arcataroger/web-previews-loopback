@@ -39,13 +39,15 @@ export async function makeRequest(
     const isLoopback: boolean =
       hostname === 'localhost' || hostname === '127.0.0.1';
 
+    console.log('isLoopback', isLoopback);
+
     const request = await fetch(url.toString(), {
       method: 'POST',
       headers,
       body: payload,
       //@ts-expect-error targetAddressSpace is a Chromium thing
       // See https://github.com/WICG/local-network-access/blob/main/explainer.md
-      targetAddressSpace: isLoopback ? 'local' : undefined, // e.g. localhost or 127.0.0.1
+      targetAddressSpace: "loopback"
     });
 
     if (request.status !== 200) {
