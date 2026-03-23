@@ -41,6 +41,11 @@ export async function makeRequest(
 
     console.log('isLoopback', isLoopback);
 
+    navigator.permissions.query({ name: "local-network-access" })
+        .then((result) => {
+          console.log(`LNA permission state: ${result.state}`)
+        });
+
     const request = await fetch(url.toString(), {
       method: 'POST',
       headers,
