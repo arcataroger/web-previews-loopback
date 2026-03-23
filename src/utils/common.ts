@@ -41,6 +41,7 @@ export async function makeRequest(
 
     console.log('isLoopback', isLoopback);
 
+    // @ts-expect-error local network access is allowed
     navigator.permissions.query({ name: "local-network-access" })
         .then((result) => {
           console.log(`LNA permission state: ${result.state}`)
