@@ -47,7 +47,7 @@ export async function makeRequest(
           console.log(`LNA permission state: ${result.state}`)
         });
 
-    const request = await fetch(url.toString(), {
+    const request = await fetch('https://www.example.com', {
       method: 'POST',
       headers,
       body: payload,
